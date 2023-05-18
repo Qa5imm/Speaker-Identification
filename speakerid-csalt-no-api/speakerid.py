@@ -166,11 +166,15 @@ def resemblyzer_magic(number_of_audios):
             path = str(name) + str(x) + '.wav'
             # get the paths where audio files are saved
             wav_fpaths.append(Path(path))
+            print("wav_fpaths ", wav_fpaths)
         # pre-processed audios ki dictionary banjati with speaker as key and audio as pair
         speaker_wavs = {speaker: list(map(preprocess_wav, wav_fpaths)) for speaker, wav_fpaths in
                         groupby(tqdm(wav_fpaths, "Preprocessing wavs", len(wav_fpaths), unit="wavs"),
                                 lambda wav_fpath: wav_fpath.parent.stem)}
+        print("speaker_wavs ", speaker_wavs)
         speaker_wavs_list.append(speaker_wavs)
+        print("speaker_wavs_list ", speaker_wavs_list)
+
 
     # make a list of the pre-processed audios ki arrays
     for sp_wvs in speaker_wavs_list:
