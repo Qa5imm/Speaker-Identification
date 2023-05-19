@@ -104,4 +104,4 @@ async def resultGenerator(names: List[str] = Form(...), file_uploads: List[Uploa
             delFiles()  # to delete all files from backend, used in this identification
             return {"result": result}
     except:
-        return {"error": "Internal Server Error"}
+        return {"error": "Server not responding"}
