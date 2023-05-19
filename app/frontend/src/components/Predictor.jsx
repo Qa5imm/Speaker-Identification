@@ -6,7 +6,7 @@ const Predictor = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState("");
-
+  
   useEffect(() => {
     const recordingsObj = state.recordings;
     const usersNum = state.usersNum;

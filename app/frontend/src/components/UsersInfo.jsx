@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { createRoutesFromChildren, useNavigate } from "react-router-dom";
+import React, {  useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Duration, RecordingsNum, UsersNum } from "../Redux/features/state";
+import {  RecordingsNum, UsersNum } from "../Redux/features/state";
 
 const UsersInfo = (props) => {
   const [usersNum, setUsersNum] = useState(0);

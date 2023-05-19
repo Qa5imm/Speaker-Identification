@@ -4,7 +4,6 @@ import Record from "./Record";
 import ChooseFile from "./ChooseFile";
 import Test from "./Test";
 import RemoveFile from "./RemoveFile";
-import Check from "./Check";
 const AudioMethod = () => {
   // states
   const [method, setMethod] = useState(0);
@@ -100,7 +99,6 @@ const AudioMethod = () => {
       {method === 1 && <ChooseFile name={name} />}
       {method === 2 && <Record name={name} />}
       <RemoveFile name={name} />  {/* to remove a file given the name of file*/}
-      <Check/>
 
       <button
         className="border border-2 border-black m-4 p-2"
