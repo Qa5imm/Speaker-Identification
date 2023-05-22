@@ -66,10 +66,21 @@ async def predictor(names, file_uploads, usersNum, recordingsNum):
         speaker_embed_list.append(
             np.array([encoder.embed_speaker(wavs) for wavs in sp_wvs.values()]))
 
-    # to get the test list from list of list of record
-    test_pos_emb = speaker_embed_list[-1]
-    speaker_embed_list.pop()  # to remove the test list from the record
-    print(test_pos_emb)
+
+    # making preprocessed test audio
+    wav_fpaths = []
+    file_upload = file_uploads[-1]
+    data = await file_upload.read()
+    filename = "test¬"+file_upload.filename
+    file_path = UPLOAD_DIR / filename
+    with open(file_path, "wb") as file_object:
+        file_object.write(data)
+    wav_fpaths.append(Path(file_path))
+    test_pos_wavs = {speaker: list(map(preprocess_wav, wav_fpaths)) for speaker, wav_fpaths in
+                     groupby(tqdm(wav_fpaths, "Preprocessing wavs", len(wav_fpaths), unit="wavs"),
+                             lambda wav_fpath: "test")}
+    test_pos_emb = np.array([encoder.embed_speaker(wavs)
+                            for wavs in test_pos_wavs.values()])
 
     # calculates cosine similarity between the ground truth (test file) and registered audios
     speakers = {}
@@ -95,7 +106,7 @@ async def predictor(names, file_uploads, usersNum, recordingsNum):
 @app.post("/predict/")
 async def resultGenerator(names: List[str] = Form(...), file_uploads: List[UploadFile] = File(...), usersNum: str = Form(...), recordingsNum: str = Form(...)):
     # equal to 2 because names list is of the form [name1, name2,..., test]
-    try :
+    try:
         if (len(names) <= 2):
             return {"error: ", "Incorrect data provided"}
         else:

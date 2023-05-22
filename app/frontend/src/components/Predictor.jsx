@@ -2,10 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 const Predictor = () => {
-  const state = useSelector((state) => state.stateSlice);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState("");
+  const state = useSelector((state) => state.stateSlice);
   
   useEffect(() => {
     const recordingsObj = state.recordings;
@@ -14,7 +14,6 @@ const Predictor = () => {
     const allNames = Object.keys(recordingsObj);
     const allFilesNested = Object.values(recordingsObj);
     const allFiles = allFilesNested.flat(Infinity); // to flattern nested array of files
-
     // formData- to construct data in key-value pairs
     let formData = new FormData();
     // encoding all files
