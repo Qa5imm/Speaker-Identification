@@ -25,7 +25,7 @@ const Test = () => {
       // only proceed if only one test file is uploaded
       setPredict(true);
     } else {
-      setError("not enough recordings");
+      setError("Not enough recordings");
     }
   };
 
@@ -33,21 +33,20 @@ const Test = () => {
     <Predictor />
   ) : (
     <div>
-      <h1 className="font-bold text-3xl m-12">Speaker Identification system</h1>
       <div>
-        <h1 className="font-bold m-12 text-2xl">
-          Recored an audio or upload a file
+        <h1 className="mb-6 text-3xl">
+          Please enter the test file
         </h1>
         <div>
           <input
             onChange={handleChoice}
-            className="mr-2"
+            className="mr-2 text-2xl"
             name="file-type"
             id="choose"
             value="choose"
             type="radio"
           />
-          <label htmlFor="choose">Pick a file</label> <br />
+          <label htmlFor="choose"  className="text-2xl">Pick a file</label> <br />
           <input
             onChange={handleChoice}
             className="mr-2"
@@ -56,7 +55,7 @@ const Test = () => {
             id="record"
             type="radio"
           />
-          <label htmlFor="record">Record an audio</label> <br />
+          <label htmlFor="record" className="text-2xl">Record an audio</label> <br />
         </div>
       </div>
       {method === 1 && <ChooseFile name={"test"} />}
@@ -64,12 +63,12 @@ const Test = () => {
       <RemoveFile name={"test"} />{" "}
       {/* to remove a file given the name of file*/}
       <button
-        className="border border-2 border-black m-4 p-2"
+        className="border-2 text-2xl p-3 rounded-md text-white bg-blue-500 m-12 w-1/3 "
         onClick={handleSubmission}
       >
         Predict
       </button>
-      {error !== "" && <div className="text-red-500"> {error} </div>}
+      {error !== "" && <div className="text-red-500 text-xl"> {error} </div>}
     </div>
   );
 };

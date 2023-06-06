@@ -12,14 +12,14 @@ const RemoveFile = (props) => {
   return (
     <div>
       {state.recordings[props.name] !== undefined && (
-        <div className="flex flex-col m-auto  ">
+        <div className="flex flex-col m-auto">
           {state.recordings[props.name] !== undefined && // map only if there exist files against a person
             state.recordings[props.name].map((file) => {
               return (
                 <div className="flex m-auto gap-x-2 ">
-                  <p>{file?.name}</p>
+                  <p className="text-2xl">{file?.name}</p>
                   <button
-                    className="border border-2 border-black px-1"
+                    className="border-2 px-2 rounded text-white bg-orange-400"
                     onClick={() => removeFile(props?.name, file?.name)}
                   >
                     x

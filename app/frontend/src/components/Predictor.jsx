@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import AudioRecorder from "./Record";
 const Predictor = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState("");
   const state = useSelector((state) => state.stateSlice);
-  
+
   useEffect(() => {
     const recordingsObj = state.recordings;
     const usersNum = state.usersNum;
@@ -43,14 +44,19 @@ const Predictor = () => {
   }, []);
 
   return loading ? (
-    <div>Files are being processed, please wait</div>
+    <div className="text-3xl m-16 ">Files are being processed, please wait...</div>
   ) : (
     <div>
       {error !== "" ? ( // if there's an error in data provided
         <p className="text-red-500"> {error} </p>
       ) : (
-        <p className="font-bold m-16">Recording belongs to {result}</p>
+        <p className="text-3xl mt-16 mb-12 mx-16">Recording belongs to {result}</p>
       )}
+      <button className="border-2 text-2xl p-3 rounded-md text-white bg-blue-500 m-12 w-1/3" onClick={(e)=> window.location.reload(false)} >
+        Start Again
+      </button>
+
+
     </div>
   );
 };

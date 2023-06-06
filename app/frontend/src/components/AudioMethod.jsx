@@ -58,18 +58,23 @@ const AudioMethod = () => {
   return done ? (
     <Test /> // conditional rendering -- if all conditions meet then render result page
   ) : (
-    <div>
-      <h1 className="font-bold text-3xl m-12">Speaker Identification system</h1>
-      <h2>Enter name of this person</h2>
-      <input
-        className="border-solid border-black border-2"
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+    <div className="w-3/4 flex flex-col items-center">
+      <div className="border-2 w-full">
+        <div className="flex flex-col gap-y-2 m-auto mb-6">
+          <label className="border-2 p-2 text-3xl text-start bg-gray-200">
+            Enter name of this user:
+          </label>
+          <input
+            className="border-2 p-2 rounded-md my-2 mx-6 text-2xl"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+      </div>
       <div>
-        <h1 className="font-bold m-12 text-2xl">
-          Recored an audio or upload a file
+        <h1 className="m-12 text-3xl">
+          Recored or Upload an audio
         </h1>
         <div>
           <input
@@ -81,7 +86,7 @@ const AudioMethod = () => {
             checked={selectedOption === "choose"}
             type="radio"
           />
-          <label htmlFor="choose">Pick a file</label> <br />
+          <label htmlFor="choose" className="text-2xl">Pick a file</label> <br />
           <input
             onChange={handleChoice}
             className="mr-2"
@@ -91,22 +96,20 @@ const AudioMethod = () => {
             id="record"
             type="radio"
           />
-          <label htmlFor="record">Record an audio</label> <br />
+          <label htmlFor="record" className="text-2xl">Record an audio</label> <br />
         </div>
       </div>
-
       {/*file uploading methods */}
       {method === 1 && <ChooseFile name={name} />}
       {method === 2 && <Record name={name} />}
-      <RemoveFile name={name} />  {/* to remove a file given the name of file*/}
-
+      <RemoveFile name={name} /> {/* to remove a file given the name of file*/}
       <button
-        className="border border-2 border-black m-4 p-2"
+        className="border-2 text-2xl p-3 rounded-md text-white bg-blue-500 m-12 w-1/3 "
         onClick={sendData}
       >
         Next User
       </button>
-      {error !== "" && <div className="text-red-500"> {error} </div>}
+      {error !== "" && <div className="text-red-500 text-xl"> {error} </div>}
     </div>
   );
 };

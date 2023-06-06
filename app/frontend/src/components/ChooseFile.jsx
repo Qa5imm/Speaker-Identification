@@ -12,10 +12,10 @@ const ChooseFile = (props) => {
   };
 
   return (
-    <div>
-      <h1 className="font-bold m-12 text-2xl">Upload file</h1>
+    <div className="mt-12 mb-6">
       <form>
         <input
+          className="text-xl"
           type="file"
           accept=".wav, .ogg, .mp3, .mpeg, "
           onChange={handleFile}
