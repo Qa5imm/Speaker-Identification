@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import AudioRecorder from "./Record";
 const Predictor = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -41,7 +40,7 @@ const Predictor = () => {
           setError(res.data.error);
         }
       });
-  }, []);
+  }, [state.recordings, state.usersNum, state.recordingsNum]);
 
   return loading ? (
     <div className="text-3xl m-16 ">Files are being processed, please wait...</div>

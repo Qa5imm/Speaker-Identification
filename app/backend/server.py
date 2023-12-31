@@ -56,10 +56,13 @@ async def predictor(names, file_uploads, usersNum, recordingsNum):
                 file_object.write(data)
             wav_fpaths.append(Path(file_path))
             fileInd += 1
-        speaker_wavs = {speaker: list(map(preprocess_wav, wav_fpaths)) for speaker, wav_fpaths in
-                        groupby(tqdm(wav_fpaths, "Preprocessing wavs", len(wav_fpaths), unit="wavs"),
-                                lambda wav_fpath: os.path.basename(wav_fpath).split("¬")[0])}  # extracting person's name from file name
-        speaker_wavs_list.append(speaker_wavs)
+        try:
+            speaker_wavs = {speaker: list(map(preprocess_wav, wav_fpaths)) for speaker, wav_fpaths in
+                            groupby(tqdm(wav_fpaths, "Preprocessing wavs", len(wav_fpaths), unit="wavs"),
+                                    lambda wav_fpath: os.path.basename(wav_fpath).split("¬")[0])}  # extracting person's name from file name
+            speaker_wavs_list.append(speaker_wavs)
+        except Exception as e:
+            print("error ", e)
 
     # make a list of the pre-processed audios ki arrays
     for sp_wvs in speaker_wavs_list:
