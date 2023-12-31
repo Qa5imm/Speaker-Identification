@@ -31,7 +31,7 @@ const Predictor = () => {
       "Content-Type": "multipart/form-data",
     };
     axios
-      .post(`http://localhost:8000/predict`, formData, headers)
+      .post(`https://qa5im-csalt-speaker-ident.hf.space/predict/`, formData, headers)
       .then((res) => {
         setLoading(false);
         if (res.data.result) {
@@ -51,7 +51,7 @@ const Predictor = () => {
       ) : (
         <p className="text-3xl mt-16 mb-12 mx-16">Recording belongs to {result}</p>
       )}
-      <button className="border-2 text-2xl p-3 rounded-md text-white bg-blue-500 m-12 w-1/3" onClick={(e)=> window.location.reload(false)} >
+      <button className="border-2 text-2xl p-3 rounded-md text-white bg-blue-500 m-12" onClick={(e)=> window.location.reload(false)} >
         Start Again
       </button>
 
