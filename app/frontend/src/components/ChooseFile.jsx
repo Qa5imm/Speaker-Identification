@@ -5,7 +5,6 @@ const ChooseFile = (props) => {
   const dispatch = useDispatch();
 
   const handleFile = (e) => {
-    console.log(e.target.files[0]);
     if (e.target.files[0] !== undefined) {
       dispatch(Recordings({ name: props.name, file: e.target.files[0] })); // saving file in redux
     }

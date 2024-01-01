@@ -38,31 +38,37 @@ def delFiles():
 
 
 async def predictor(names, file_uploads, usersNum, recordingsNum):
-    speaker_embed_list = []
-    encoder = VoiceEncoder()
-    # Iterating over list of files corresponding to each user
-    speaker_wavs_list = []
-    fileInd = 0
-    names.pop()  # to remove key named "test"
-    for name in names:
-        wav_fpaths = []
-        for ind in range(int(recordingsNum)):
-            file_upload = file_uploads[fileInd]
-            data = await file_upload.read()
-            # appending person's name to the his/her recordings
-            filename = name+"¬"+file_upload.filename
-            file_path = UPLOAD_DIR / filename
-            with open(file_path, "wb") as file_object:
-                file_object.write(data)
-            wav_fpaths.append(Path(file_path))
-            fileInd += 1
-        try:
-            speaker_wavs = {speaker: list(map(preprocess_wav, wav_fpaths)) for speaker, wav_fpaths in
-                            groupby(tqdm(wav_fpaths, "Preprocessing wavs", len(wav_fpaths), unit="wavs"),
-                                    lambda wav_fpath: os.path.basename(wav_fpath).split("¬")[0])}  # extracting person's name from file name
-            speaker_wavs_list.append(speaker_wavs)
-        except Exception as e:
-            print("error ", e)
+    try:
+        speaker_embed_list = []
+        encoder = VoiceEncoder()
+        # Iterating over list of files corresponding to each user
+        speaker_wavs_list = []
+        fileInd = 0
+        names.pop()  # to remove key named "test"
+        print("file_uploads ", file_uploads, "recordingNums ", recordingsNum)
+        for name in names:
+            wav_fpaths = []
+            for ind in range(int(recordingsNum)):
+                print("inside yo")
+                file_upload = file_uploads[fileInd]
+                data = await file_upload.read()
+                # appending person's name to the his/her recordings
+                filename = name+"¬"+file_upload.filename
+                file_path = UPLOAD_DIR / filename
+                with open(file_path, "wb") as file_object:
+                    file_object.write(data)
+                wav_fpaths.append(Path(file_path))
+                fileInd += 1
+                print("wav_fpaths len", len(wav_fpaths), "name", name)
+            try:
+                speaker_wavs = {speaker: list(map(preprocess_wav, wav_fpaths)) for speaker, wav_fpaths in
+                                groupby(tqdm(wav_fpaths, "Preprocessing wavs", len(wav_fpaths), unit="wavs"),
+                                        lambda wav_fpath: os.path.basename(wav_fpath).split("¬")[0])}  # extracting person's name from file name
+                speaker_wavs_list.append(speaker_wavs)
+            except Exception as e:
+                print("error ", e)
+    except Exception as e:
+        print("function error ", e)
 
     # make a list of the pre-processed audios ki arrays
     for sp_wvs in speaker_wavs_list:
@@ -79,6 +85,7 @@ async def predictor(names, file_uploads, usersNum, recordingsNum):
     with open(file_path, "wb") as file_object:
         file_object.write(data)
     wav_fpaths.append(Path(file_path))
+    print("about to test\n")
     test_pos_wavs = {speaker: list(map(preprocess_wav, wav_fpaths)) for speaker, wav_fpaths in
                      groupby(tqdm(wav_fpaths, "Preprocessing wavs", len(wav_fpaths), unit="wavs"),
                              lambda wav_fpath: "test")}

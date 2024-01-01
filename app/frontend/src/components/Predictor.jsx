@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { BASE_URL } from "../config";
 const Predictor = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -26,12 +27,11 @@ const Predictor = () => {
     });
     formData.append("usersNum", usersNum);
     formData.append("recordingsNum", recordingsNum);
-    console.log(allFiles, allNames, usersNum, recordingsNum);
     const headers = {
       "Content-Type": "multipart/form-data",
     };
     axios
-      .post(`https://qa5im-csalt-speaker-ident.hf.space/predict/`, formData, headers)
+      .post(`${BASE_URL}/predict/`, formData, headers)
       .then((res) => {
         setLoading(false);
         if (res.data.result) {

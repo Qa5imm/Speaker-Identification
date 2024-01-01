@@ -57,7 +57,7 @@ const AudioRecorder = (props) => {
       mediaRecorderRef.current.state === "recording"
     ) {
       mediaRecorderRef.current.stop();
-      const audioBlob = new Blob(audioChunksRef.current, { type: "audio/wav" });
+      const audioBlob = new Blob(audioChunksRef.current, { type: "audio/ogg" });
       setRecordedAudioBlob(audioBlob);
 
       const audioUrl = URL.createObjectURL(audioBlob);
@@ -82,9 +82,9 @@ const AudioRecorder = (props) => {
         recordObj[props.name] !== undefined
           ? recordObj[props.name].length + 1
           : 1
-      }_recorded.wav`,
+      }_recorded.ogg`,
       {
-        type: "audio/wav",
+        type: "audio/ogg",
         lastModified: new Date().getTime(),
       }
     );
