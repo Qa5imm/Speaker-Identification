@@ -48,7 +48,7 @@ const AudioMethod = () => {
       setDone(true);
     } else {
       if (Number(defRecordings) !== Number(actRecordings)) {
-        setError("Enter correct number of recordings");
+        setError("Enter correct number of recordings per user");
       } else {
         clearInputs();
       }
@@ -58,14 +58,14 @@ const AudioMethod = () => {
   return done ? (
     <Test /> // conditional rendering -- if all conditions meet then render result page
   ) : (
-    <div className="w-3/4 flex flex-col items-center">
+    <div className="w-full flex flex-col items-center md:w-3/4">
       <div className="border-2 w-full">
         <div className="flex flex-col gap-y-2 m-auto mb-6">
-          <label className="border-2 p-2 text-2xl text-start bg-gray-200">
+          <label className="border-2 p-2 text-lg text-start bg-gray-200 md:text-2xl">
             Enter name of this user:
           </label>
           <input
-            className="border-2 p-2 rounded-md my-2 mx-6 text-xl"
+            className="border-2 p-1 rounded-md my-1 mx-2  text-lg md:text-2xl md:mx-6 md:p-1 md:my-2"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -73,7 +73,7 @@ const AudioMethod = () => {
         </div>
       </div>
       <div>
-        <h1 className="m-12 text-2xl">
+        <h1 className="m-12 text-xl md:text-2xl">
           Recored or Upload an audio
         </h1>
         <div>
@@ -86,7 +86,7 @@ const AudioMethod = () => {
             checked={selectedOption === "choose"}
             type="radio"
           />
-          <label htmlFor="choose" className="text-xl cursor-pointer">Pick a file</label> <br />
+          <label htmlFor="choose" className="text-lg cursor-pointer md:text-xl">Pick a file</label> <br />
           <input
             onChange={handleChoice}
             className="mr-2"
@@ -96,16 +96,16 @@ const AudioMethod = () => {
             id="record"
             type="radio"
           />
-          <label htmlFor="record" className="text-xl cursor-pointer">Record an audio</label> <br />
+          <label htmlFor="record" className="text-lg cursor-pointer md:text-xl">Record an audio</label> <br />
         </div>
       </div>
-      {error !== "" && <div className="text-red-500 text-xl mt-2"> {error} </div>}
+      {error !== "" && <div className="text-red-500 text-lg mt-2 md:text-xl"> {error} </div>}
       {/*file uploading methods */}
       {method === 1 && <ChooseFile name={name} />}
       {method === 2 && <Record name={name} />}
       <RemoveFile name={name} /> {/* to remove a file given the name of file*/}
       <button
-        className="border-2 text-xl p-2 rounded-md text-white bg-blue-500 m-8 w-1/4"
+        className="border-2 text-lg p-1 rounded-md text-white bg-blue-500 m-8 w-1/2 md:w-1/4 md:text-xl md:p-2"
         onClick={sendData}
       >
         Next User

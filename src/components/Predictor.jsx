@@ -43,15 +43,15 @@ const Predictor = () => {
   }, [state.recordings, state.usersNum, state.recordingsNum]);
 
   return loading ? (
-    <div className="text-3xl m-16 ">Files are being processed, please wait...</div>
+    <div className="text-xl m-16 md:text-3xl">Files are being processed, please wait...</div>
   ) : (
     <div>
       {error !== "" ? ( // if there's an error in data provided
         <p className="text-red-500"> {error} </p>
       ) : (
-        <p className="text-2xl mt-16 mb-12 mx-16">Recording belongs to {result}</p>
+        <p className="text-xl mt-16 mb-12 mx-16 md:text-2xl ">Recording belongs to {result}</p>
       )}
-      <button className="border-2 text-xl p-3 rounded-md text-white bg-blue-500 m-12" onClick={(e)=> window.location.reload(false)} >
+      <button className="border-2 text-lg p-2 rounded-md text-white bg-blue-500 m-12 md:p-2 md:text-lg" onClick={(e)=> window.location.reload(false)} >
         Start Again
       </button>
 

@@ -16,8 +16,8 @@ const RemoveFile = (props) => {
           {state.recordings[props.name] !== undefined && // map only if there exist files against a person
             state.recordings[props.name].map((file) => {
               return (
-                <div className="flex m-auto gap-x-2 ">
-                  <p className="text-xl">{file?.name}</p>
+                <div className="flex m-auto gap-x-2">
+                  <p className="text-lg md:text-xl">{file?.name}</p>
                   <button
                     className="border-2 px-2 py-0.5 rounded text-white bg-orange-400"
                     onClick={() => removeFile(props?.name, file?.name)}

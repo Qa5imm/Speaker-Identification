@@ -96,14 +96,14 @@ const AudioRecorder = (props) => {
   return (
     <div>
       <button
-        className="bg-orange-500 rounded m-4 border-2 px-2 py-1 text-white text-lg hover:bg-orange-200"
+        className="bg-orange-500 rounded m-4 border-2 px-2 py-1 text-white text-md hover:bg-orange-200 md:text-lg"
         disabled={isRecording}
         onClick={startRecording}
       >
         Start
       </button>
       <button
-        className="bg-orange-500 rounded m-4 border-2 px-2 py-1 text-white text-lg hover:bg-orange-200"
+        className="bg-orange-500 rounded m-4 border-2 px-2 py-1 text-white text-md hover:bg-orange-200 md:text-lg"
         disabled={!isRecording}
         onClick={stopRec}
       >
@@ -112,7 +112,7 @@ const AudioRecorder = (props) => {
       <button
         hidden={!recordingComp}
         onClick={uploadRecording}
-        className="bg-orange-500 rounded m-4 border-2 px-2 py-1 text-white text-lg hover:bg-orange-200"
+        className="bg-orange-500 rounded m-4 border-2 px-2 py-1 text-white text-md hover:bg-orange-200 md:text-lg"
       >
         Upload
       </button>

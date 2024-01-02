@@ -14,7 +14,7 @@ const ChooseFile = (props) => {
     <div className="mt-12 mb-6">
       <form>
         <input
-          className="text-xl cursor-pointer"
+          className="text-lg cursor-pointer md:text-xl"
           type="file"
           accept=".wav, .ogg, .mp3, .mpeg, "
           onChange={handleFile}

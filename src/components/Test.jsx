@@ -34,19 +34,19 @@ const Test = () => {
   ) : (
     <div>
       <div>
-        <h1 className="mb-6 text-2xl">
+        <h1 className="mb-6 text-xl md:text-2xl">
           Please enter the test file
         </h1>
         <div>
           <input
             onChange={handleChoice}
-            className="mr-2 text-xl"
+            className="mr-2 text-lg md:text-xl"
             name="file-type"
             id="choose"
             value="choose"
             type="radio"
           />
-          <label htmlFor="choose"  className="text-xl cursor-pointer">Pick a file</label> <br />
+          <label htmlFor="choose"  className="text-lg md:text-xl cursor-pointer">Pick a file</label> <br />
           <input
             onChange={handleChoice}
             className="mr-2"
@@ -55,7 +55,7 @@ const Test = () => {
             id="record"
             type="radio"
           />
-          <label htmlFor="record" className="text-xl cursor-pointer">Record an audio</label> <br />
+          <label htmlFor="record" className="text-lg cursor-pointer md:text-xl">Record an audio</label> <br />
         </div>
       </div>
       
@@ -64,10 +64,10 @@ const Test = () => {
       
       <RemoveFile name={"test"} />{" "}
       {/* to remove a file given the name of file*/}
-      {error !== "" && <div className="text-red-500 text-lg mt-2"> {error} </div>}
+      {error !== "" && <div className="text-red-500 text-md mt-2 md:text-lg"> {error} </div>}
 
       <button
-        className="border-2 text-xl p-2 rounded-md text-white bg-blue-500 m-12 w-1/3 cursor-pointer "
+        className="border-2 text-lg p-1 rounded-md text-white bg-blue-500 m-12 w-1/3 cursor-pointer md:text-lg md:p-2"
         onClick={handleSubmission}
       >
         Predict

@@ -7,21 +7,19 @@ import csalt from "../assets/csalt.png";
 const Main = () => {
   const [checkSub, setCheckSub] = useState(false);
   return (
-    <div className="font-serif">
-      <div className="">
-        <img
-          src={hec}
-          alt=""
-          className="h-20 ml-12 mt-16 float-left align-baseline inline-block"
-        />
+    <div className="font-serif mx-4">
+      <div className="flex justify-between items-center gap-x-2 mt-16 md:justify-around">
+        <img src={hec} alt="" className="h-12 md:h-20" />
+        <div>
+          <h1 className="font-bold text-center text-lg md:text-4xl">
+            Speaker Identification System
+          </h1>
+        </div>
         <img
           src={csalt}
           alt=""
-          className="h-20 mr-12  mt-16 float-right bg-gray-300 p-2 align-baseline inline-block"
+          className="h-12  bg-gray-300 p-2 md:h-20 "
         />
-        <h1 className="font-bold text-4xl mt-24 text-center align-baseline inline-block mx-0">
-          Speaker Identification System
-        </h1>
       </div>
 
       <div className="flex justify-center mt-36">
