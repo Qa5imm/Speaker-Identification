@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Speaker-identification/static/css/main.073c9b0a.css",
+    "main.js": "/Speaker-identification/static/js/main.5288b904.js",
+    "static/js/787.cda612ba.chunk.js": "/Speaker-identification/static/js/787.cda612ba.chunk.js",
+    "static/media/hec.png": "/Speaker-identification/static/media/hec.4aab9840ca945c615bbc.png",
+    "static/media/csalt.png": "/Speaker-identification/static/media/csalt.531fcc3007c9f8671f58.png",
+    "index.html": "/Speaker-identification/index.html",
+    "main.073c9b0a.css.map": "/Speaker-identification/static/css/main.073c9b0a.css.map",
+    "main.5288b904.js.map": "/Speaker-identification/static/js/main.5288b904.js.map",
+    "787.cda612ba.chunk.js.map": "/Speaker-identification/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.5288b904.js"
+  ]
+}
