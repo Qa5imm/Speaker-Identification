@@ -26,7 +26,7 @@ const UsersInfo = (props) => {
       <hr />
       <form onSubmit={formHandler} className="w-full border-2  ">
         <div className="flex flex-col gap-y-2 m-auto mb-6">
-          <label className="border-2 p-2 text-3xl text-start bg-gray-200"> Enter the number of users: </label>
+          <label className="border-2 p-2 text-2xl text-start bg-gray-200"> Enter the number of users: </label>
           <input
             className="border-2 p-2 rounded-md my-2 mx-6  text-2xl"
             type="number"
@@ -39,7 +39,7 @@ const UsersInfo = (props) => {
           />
         </div>
         <div className="flex flex-col gap-y-2 m-auto mb-6">
-          <label className="border-2 p-2 text-3xl text-start bg-gray-200"> Enter the number of recordings per user: </label>
+          <label className="border-2 p-2 text-2xl text-start bg-gray-200"> Enter the number of recordings per user: </label>
           <input
             className="border-2 p-2 rounded-md my-2 mx-6 text-2xl"
             type="number"
@@ -52,7 +52,7 @@ const UsersInfo = (props) => {
         </div>
         <input
           type="submit"
-          className="border-2 text-2xl p-3 rounded-md text-white bg-blue-500 mb-4"
+          className="border-2 text-xl p-3 rounded-md text-white bg-blue-500 mb-4 cursor-pointer"
         />
       </form>
       {error && <p className="text-red-500 mt-6 text-2xl">{error}</p>} {/* error message */}

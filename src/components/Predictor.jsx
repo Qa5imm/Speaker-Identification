@@ -49,9 +49,9 @@ const Predictor = () => {
       {error !== "" ? ( // if there's an error in data provided
         <p className="text-red-500"> {error} </p>
       ) : (
-        <p className="text-3xl mt-16 mb-12 mx-16">Recording belongs to {result}</p>
+        <p className="text-2xl mt-16 mb-12 mx-16">Recording belongs to {result}</p>
       )}
-      <button className="border-2 text-2xl p-3 rounded-md text-white bg-blue-500 m-12" onClick={(e)=> window.location.reload(false)} >
+      <button className="border-2 text-xl p-3 rounded-md text-white bg-blue-500 m-12" onClick={(e)=> window.location.reload(false)} >
         Start Again
       </button>
 
