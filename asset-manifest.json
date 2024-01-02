@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Speaker-identification/static/css/main.073c9b0a.css",
-    "main.js": "/Speaker-identification/static/js/main.df272380.js",
-    "static/js/787.cda612ba.chunk.js": "/Speaker-identification/static/js/787.cda612ba.chunk.js",
-    "static/media/hec.png": "/Speaker-identification/static/media/hec.4aab9840ca945c615bbc.png",
-    "static/media/csalt.png": "/Speaker-identification/static/media/csalt.531fcc3007c9f8671f58.png",
-    "index.html": "/Speaker-identification/index.html",
-    "main.073c9b0a.css.map": "/Speaker-identification/static/css/main.073c9b0a.css.map",
-    "main.df272380.js.map": "/Speaker-identification/static/js/main.df272380.js.map",
-    "787.cda612ba.chunk.js.map": "/Speaker-identification/static/js/787.cda612ba.chunk.js.map"
+    "main.css": "/Speaker-Identification/static/css/main.073c9b0a.css",
+    "main.js": "/Speaker-Identification/static/js/main.7aefba48.js",
+    "static/js/787.cda612ba.chunk.js": "/Speaker-Identification/static/js/787.cda612ba.chunk.js",
+    "static/media/hec.png": "/Speaker-Identification/static/media/hec.4aab9840ca945c615bbc.png",
+    "static/media/csalt.png": "/Speaker-Identification/static/media/csalt.531fcc3007c9f8671f58.png",
+    "index.html": "/Speaker-Identification/index.html",
+    "main.073c9b0a.css.map": "/Speaker-Identification/static/css/main.073c9b0a.css.map",
+    "main.7aefba48.js.map": "/Speaker-Identification/static/js/main.7aefba48.js.map",
+    "787.cda612ba.chunk.js.map": "/Speaker-Identification/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.df272380.js"
+    "static/js/main.7aefba48.js"
   ]
 }
